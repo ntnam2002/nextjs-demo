@@ -32,3 +32,27 @@ function ClientOnlyComponent() {
 }
 
 export default ClientOnlyComponent;
+// import dynamic from 'next/dynamic';
+
+// // Chỉ load component trên client
+// const DynamicComponent = dynamic(() => import('../components/HeavyComponent'), { ssr: false });
+
+// export async function getServerSideProps() {
+//   const res = await fetch('https://api.example.com/data');
+//   const data = await res.json();
+
+//   return { props: { data } };
+// }
+
+// const MyPage = ({ data }) => (
+//   <div>
+//     <h1>SSR + CSR Example</h1>
+//     {/* Phần này được render trên server */}
+//     <p>{data.description}</p>
+
+//     {/* Phần này chỉ được render trên client */}
+//     <DynamicComponent />
+//   </div>
+// );
+
+// export default MyPage;

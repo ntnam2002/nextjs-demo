@@ -6,21 +6,13 @@ import CourseItem from "./CourseItem";
 
 export default function CourseList() {
     const [courses, setCourses] = useState([]);
-    const userId = "user123"; // Giả sử đây là ID của người dùng đang đăng nhập
+    const userId = "user123";
 
     useEffect(() => {
         async function fetchCourses() {
             try {
                 const allCourses = await getCourses();
-                const userCourses = await getUserCourses(userId);
-                const updatedCourses = allCourses.map((course) => ({
-                    ...course,
-                    isPurchased: userCourses.some(
-                        (userCourse) => userCourse.id === course.id,
-                    ),
-                }));
-                console.log(updatedCourses);
-                setCourses(updatedCourses);
+                setCourses(allCourses);
             } catch (error) {
                 console.error("Error fetching courses:", error);
             }
